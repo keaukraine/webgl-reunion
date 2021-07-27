@@ -1,0 +1,105 @@
+import { BaseRenderer } from "webgl-framework";
+import { mat4, vec3 } from "gl-matrix";
+export declare class Renderer extends BaseRenderer {
+    private lastTime;
+    private angleYaw;
+    private loaded;
+    private fmSky;
+    private fmStatic;
+    private fmSquirrel;
+    private fmDryad;
+    private fmBook;
+    private fmProps;
+    private fmBrick1;
+    private fmBrick2;
+    private fmBrick3;
+    private fmBrick4;
+    private fmCandle;
+    private fmFlame;
+    private fmDust;
+    private textureSky;
+    private textureStatic;
+    private textureSquirrel;
+    private textureDryad;
+    private textureFlameDiffuse;
+    private textureFlameAlpha;
+    private textureDust;
+    private texturesSquirrelAnim;
+    private texturesDryadAnim;
+    private texturesBookAnim;
+    private texturePropsAnim;
+    private shaderDiffuse;
+    private shaderDiffuseAnimatedTexture;
+    private shaderDiffuseAnimatedTextureChunked;
+    private shaderDiffuseAlpha;
+    private shaderDiffuseColored;
+    private shaderPointSpriteColored;
+    private customCamera;
+    private Z_NEAR;
+    private Z_FAR;
+    private timerFlamesFlicker;
+    private FLAME_FLICKER_SPEED;
+    private timerDustRotation;
+    private DUST_ROTATION_SPEED;
+    private timerBrickAnimation1;
+    private timerBrickAnimation2;
+    private BRICK_ANIMATION_PERIOD1;
+    private BRICK_ANIMATION_PERIOD2;
+    private timerPropsAnimation;
+    private PROPS_ANIMATION_PERIOD;
+    private timerCharactersAnimation;
+    private SQUIRREL_ANIMATION_PERIOD;
+    private readonly ANIMATION_TEXTURE_WIDTH;
+    private animationsSquirrel;
+    private animationsDryad;
+    private animationsBook;
+    private animationProps;
+    private animationPreset;
+    private cameraMode;
+    private currentRandomCamera;
+    protected matViewInverted: mat4;
+    protected matViewInvertedTransposed: mat4;
+    protected matTemp: mat4;
+    protected cameraPosition: vec3;
+    protected cameraRotation: vec3;
+    private readonly STATIC_FLAMES;
+    private CAMERAS;
+    private readonly CAMERA_SPEED;
+    private readonly CAMERA_MIN_DURATION;
+    private cameraPositionInterpolator;
+    private readonly SCALE;
+    private dustSpriteSize;
+    private DUST_COLOR;
+    private DUST_SPRITE_SIZE;
+    private DUST_SCALE;
+    constructor();
+    private logCamera;
+    setCustomCamera(camera: mat4 | undefined, position?: vec3, rotation?: vec3): void;
+    resetCustomCamera(): void;
+    onBeforeInit(): void;
+    onAfterInit(): void;
+    onInitError(): void;
+    initShaders(): void;
+    loadFloatingPointTexture(url: string, gl: WebGL2RenderingContext, width: number, height: number, minFilter?: number, magFilter?: number, clamp?: boolean): Promise<WebGLTexture>;
+    loadData(): Promise<void>;
+    changeScene(): Promise<void>;
+    animate(): void;
+    /** Calculates projection matrix */
+    setCameraFOV(multiplier: number): void;
+    /**
+     * Calculates camera matrix.
+     *
+     * @param a Position in [0...1] range
+     */
+    private positionCamera;
+    /** Issues actual draw calls */
+    drawScene(): void;
+    private drawSceneObjects;
+    private drawDust;
+    private drawAnimated;
+    private drawFlame;
+    private getFlameAngle;
+    private clamp;
+    private randomizeCamera;
+    private drawPointSpritesVBOTranslatedRotatedScaled;
+}
