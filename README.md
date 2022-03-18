@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/414072/158968586-012c1dac-c0fd-4bbf-8901-0f3d1fb431f0.png)
+
 # Reunion WebGL Demo
 
 Live demo page is available here: https://keaukraine.github.io/webgl-reunion/index.html
